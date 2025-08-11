@@ -1,12 +1,15 @@
-# React + Vite
+1. Create a Store : import configureStore  ```store.js stores all the main values of the codes```
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+2. createSlice (todoSlice.js)   and nanoid to generate uniqueId
+        write functions in reducer in createSlice
+        export reducer functions from todoSlice.actions seperately
 
-Currently, two official plugins are available:
+3. store needs all the reducers access to update data
+    export default todoSlice.reducers,
+    import in store.js
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+4. Dispatch reducer ko use krke  store me changes karta hai
+5. from AddTodo dispatch(addTodo(input)) - changes will be made in store-
+    to removeTodo send id using useDispatch
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+6. use useSelector(state => state.todos) to retrieve data from the store
